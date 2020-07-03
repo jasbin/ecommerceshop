@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderPaid;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -92,7 +94,6 @@ class OrderController extends Controller
             $order->items()->attach($item->id, ['price' => $item->price, 'quantity' => $item->quantity]);
         }
 
-
         //payment
         if (request('payment_method') == 'paypal') {
             //redirect to paypal
@@ -102,7 +103,10 @@ class OrderController extends Controller
 
         //empty cart
         \Cart::session(auth()->id())->clear();
+
+
         //send email to customer
+        Mail::to($order->user->email)->send(new OrderPaid($order));
 
 
         return redirect()->route('home')->with('success', 'Order has been placed');

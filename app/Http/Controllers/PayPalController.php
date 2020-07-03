@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderPaid;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use RecursiveRegexIterator;
 use Srmklive\PayPal\Facades\PayPal;
 use Srmklive\PayPal\Services\ExpressCheckout;
@@ -35,9 +37,13 @@ class PayPalController extends Controller
             $payment_status = $provider->doExpressCheckoutPayment($checkoutData, $token, $payerID);
             $status = $payment_status['PAYMENTINFO_0_PAYMENTSTATUS'];
             if (in_array($status, ['Completed', 'Processed'])) {
-                Order::where('id', $orderId)->update(['is_paid' => 1]);
+                $order = Order::where('id', $orderId)->update(['is_paid' => 1]);
 
                 //todo:send email to customer
+                $order = Order::find($orderId);
+                $order->is_paid = 0;
+                $order->update();
+                Mail::to($order->user->email)->send(new OrderPaid($order));
 
                 return redirect('/')->with('success', 'Payment Successful');
             }
