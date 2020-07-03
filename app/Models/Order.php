@@ -11,6 +11,7 @@ class  Order extends Model
 
     public function items()
     {
+        //many to many relation to access pivot table as well use withPivot method
         return $this->belongsToMany(Product::class, 'order_items','order_id','product_id')->withPivot('quantity','price');
     }
 

@@ -45,11 +45,11 @@ class PayPalController extends Controller
                 $order->update();
                 Mail::to($order->user->email)->send(new OrderPaid($order));
 
-                return redirect('/')->with('success', 'Payment Successful');
+                return redirect()->route('home')->with('success', 'Payment Successful');
             }
         }
 
-        return redirect('/')->with('success', 'Payment Unsuccessful Something Went Wrong');
+        return redirect()->route('home')->with('success', 'Payment Unsuccessful Something Went Wrong');
 
     }
 
