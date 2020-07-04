@@ -21,7 +21,7 @@ Route::redirect('/','/home');
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class,'index'])->name('home');
+Route::get('/', [HomeController::class,'index'])->name('home');
 
 //cart
 
@@ -45,3 +45,8 @@ Route::group(['prefix'=>'paypal','middleware'=>'auth','as'=>'paypal.'], function
 });
 
 
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
