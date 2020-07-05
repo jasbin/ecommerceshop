@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PayPalController;
+use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +37,14 @@ Route::group(['prefix'=>'cart','middleware'=>'auth','as'=>'cart.'], function(){
 
 Route::group(['prefix'=>'orders','middleware'=>'auth','as'=>'orders.'], function(){
     Route::post('/store', [OrderController::class,'store'])->name('store');
+});
+
+Route::group(['prefix'=>'shops','middleware'=>'auth','as'=>'shops.'], function(){
+    Route::get('/', [ShopController::class,'index'])->name('index');
+    Route::get('/store', [ShopController::class,'store'])->name('store');
+    Route::get('/show', [ShopController::class,'show'])->name('show');
+    Route::get('/destroy/{shops}', [ShopController::class,'destroy'])->name('destroy');
+    Route::get('/update/{shops}', [ShopController::class,'update'])->name('update');
 });
 
 Route::group(['prefix'=>'paypal','middleware'=>'auth','as'=>'paypal.'], function(){
