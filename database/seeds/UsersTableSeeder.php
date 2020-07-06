@@ -31,6 +31,20 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2020-06-30 09:01:36',
                 'updated_at' => '2020-07-04 03:57:07',
             ),
+            1 => 
+            array (
+                'id' => 4,
+                'role_id' => 3,
+                'name' => 'rabin maskey',
+                'email' => 'rabinmaskey@gmail.com',
+                'avatar' => 'users/default.png',
+                'email_verified_at' => NULL,
+                'password' => '$2y$10$i9wuuu68qgPfyv.iepWpPe3BmxBFkcoO/JId6n3YT6JbjOjBBkXi6',
+                'remember_token' => NULL,
+                'settings' => '{"locale":"en"}',
+                'created_at' => '2020-07-06 06:26:00',
+                'updated_at' => '2020-07-06 06:33:42',
+            ),
         ));
         
         

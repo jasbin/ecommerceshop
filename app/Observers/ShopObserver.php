@@ -48,25 +48,4 @@ class ShopObserver
         //
     }
 
-    /**
-     * Handle the shop "restored" event.
-     *
-     * @param  \App\Shop  $shop
-     * @return void
-     */
-    public function restored(Shop $shop)
-    {
-        //
-    }
-
-    /**
-     * Handle the shop "force deleted" event.
-     *
-     * @param  \App\Shop  $shop
-     * @return void
-     */
-    public function forceDeleted(Shop $shop)
-    {
-        //
-    }
 }
