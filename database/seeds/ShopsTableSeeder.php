@@ -12,12 +12,12 @@ class ShopsTableSeeder extends Seeder
      */
     public function run()
     {
-
+        
 
         \DB::table('shops')->delete();
-
+        
         \DB::table('shops')->insert(array (
-            0 =>
+            0 => 
             array (
                 'id' => 1,
                 'name' => 'rabin store',
@@ -28,6 +28,7 @@ class ShopsTableSeeder extends Seeder
                 'created_at' => '2020-07-06 06:32:00',
                 'updated_at' => '2020-07-06 06:33:38',
             ),
+            1 => 
             array (
                 'id' => 2,
                 'name' => 'rabin store',
@@ -38,6 +39,7 @@ class ShopsTableSeeder extends Seeder
                 'created_at' => '2020-07-06 06:32:00',
                 'updated_at' => '2020-07-06 06:33:38',
             ),
+            2 => 
             array (
                 'id' => 3,
                 'name' => 'rabin store',
@@ -49,7 +51,7 @@ class ShopsTableSeeder extends Seeder
                 'updated_at' => '2020-07-06 06:33:38',
             ),
         ));
-
-
+        
+        
     }
 }
