@@ -50,6 +50,17 @@ class ShopsTableSeeder extends Seeder
                 'created_at' => '2020-07-06 06:32:00',
                 'updated_at' => '2020-07-06 06:33:38',
             ),
+            3 => 
+            array (
+                'id' => 4,
+                'name' => 'seller 1 shop',
+                'is_active' => 0,
+                'user_id' => 5,
+                'description' => '<p>seller 1 description</p>',
+                'ratings' => NULL,
+                'created_at' => '2020-07-06 08:46:00',
+                'updated_at' => '2020-07-06 08:55:13',
+            ),
         ));
         
         

@@ -41,14 +41,4 @@ class ShopPolicy
     {
         return $user->id == $shop->user_id;
     }
-
-    /**
-     * Determine whether the user can update the model.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Models\Shop  $shop
-     * @return mixed
-     */
-
-
 }

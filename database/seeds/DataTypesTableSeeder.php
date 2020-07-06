@@ -99,13 +99,13 @@ class DataTypesTableSeeder extends Seeder
                 'icon' => 'voyager-shop',
                 'model_name' => 'App\\Models\\Shop',
                 'policy_name' => '\\App\\Policies\\ShopPolicy',
-                'controller' => NULL,
+                'controller' => 'App\\Http\\Controllers\\Admin\\ShopController',
                 'description' => NULL,
                 'generate_permissions' => 1,
                 'server_side' => 0,
                 'details' => '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}',
                 'created_at' => '2020-07-06 06:29:05',
-                'updated_at' => '2020-07-06 06:33:27',
+                'updated_at' => '2020-07-06 09:44:50',
             ),
             5 => 
             array (
@@ -116,14 +116,14 @@ class DataTypesTableSeeder extends Seeder
                 'display_name_plural' => 'Products',
                 'icon' => 'voyager-bag',
                 'model_name' => 'App\\Models\\Product',
-                'policy_name' => NULL,
-                'controller' => NULL,
+                'policy_name' => '\\App\\Policies\\ProductPolicy',
+                'controller' => 'App\\Http\\Controllers\\Admin\\ProductController',
                 'description' => NULL,
                 'generate_permissions' => 1,
                 'server_side' => 0,
                 'details' => '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}',
                 'created_at' => '2020-07-06 07:30:26',
-                'updated_at' => '2020-07-06 07:31:36',
+                'updated_at' => '2020-07-06 09:37:07',
             ),
         ));
         
