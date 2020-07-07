@@ -27,6 +27,11 @@ class ShopPolicy
         return $user->id == $shop->user_id;
     }
 
+    public function add(User $user)
+    {
+        return $user->hasRole('seller');
+    }
+
     public function edit(User $user, Shop $shop)
     {
         return $user->id == $shop->user_id;

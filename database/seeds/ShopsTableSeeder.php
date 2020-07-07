@@ -54,12 +54,12 @@ class ShopsTableSeeder extends Seeder
             array (
                 'id' => 4,
                 'name' => 'seller 1 shop',
-                'is_active' => 0,
+                'is_active' => 1,
                 'user_id' => 5,
                 'description' => '<p>seller 1 description</p>',
                 'ratings' => NULL,
                 'created_at' => '2020-07-06 08:46:00',
-                'updated_at' => '2020-07-06 08:55:13',
+                'updated_at' => '2020-07-06 09:46:57',
             ),
         ));
         

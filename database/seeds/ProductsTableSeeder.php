@@ -567,6 +567,17 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2020-07-06 07:29:29',
                 'updated_at' => '2020-07-06 07:29:29',
             ),
+            50 => 
+            array (
+                'id' => 51,
+                'name' => 'seller one product',
+                'description' => '<p>seller one product description</p>',
+                'price' => 199.0,
+                'shop_id' => 4,
+                'cover_img' => 'products\\July2020\\N5tKw3T2Q1BXQKD3SImF.jpg',
+                'created_at' => '2020-07-06 10:16:00',
+                'updated_at' => '2020-07-06 10:41:30',
+            ),
         ));
         
         

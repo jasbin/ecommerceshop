@@ -29,12 +29,9 @@ class ProductPolicy
         return $user->id == $product->shop->user_id;
     }
 
-    public function add(User $user, Product $product)
+    public function add(User $user,Product $product)
     {
-        if (empty($product->shop))
-            return false;
-
-        return $user->id == $product->shop->user_id;
+        return $user->hasRole('seller');
     }
 
         public function edit(User $user, Product $product)
