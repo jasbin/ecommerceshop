@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data['products'] = Product::take(20)->get();
+        $data['products'] = Product::take(8)->get();
         return view('home', $data);
     }
 }
