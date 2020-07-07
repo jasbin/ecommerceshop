@@ -9,12 +9,14 @@
                 </div>
                 <div class="category-menu-list">
                     <ul>
+                        @foreach ($categories as $category)
                         <li>
-                            <a href="#"><img alt="" src="assets/img/icon-img/5.png">Computer & Laptops <i
+                            <a href="#"><img alt="" src="assets/img/icon-img/5.png">{{$category->name}} <i
                                     class="pe-7s-angle-right"></i></a>
+                            @if(categoryChild($category->id)->isNotEmpty())
                             <div class="category-menu-dropdown">
                                 <div class="category-dropdown-style category-common4 mb-40">
-                                    <h4 class="categories-subtitle"> Desktop</h4>
+                                    <h4 class="categories-subtitle"> {{$category->name}}</h4>
                                     <ul>
                                         <li><a href="#"> Mother Board</a></li>
                                         <li><a href="#"> Power Supply</a></li>
@@ -25,51 +27,15 @@
                                         <li><a href="#">HD Cable</a></li>
                                     </ul>
                                 </div>
-                                <div class="category-dropdown-style category-common4 mb-40">
-                                    <h4 class="categories-subtitle"> Laptop</h4>
-                                    <ul>
-                                        <li><a href="#">HP</a></li>
-                                        <li><a href="#">lenovo</a></li>
-                                        <li><a href="#"> vivo</a></li>
-                                        <li><a href="#"> Mack Book Air</a></li>
-                                        <li><a href="#"> Mack Book Pro</a></li>
-                                        <li><a href="#"> LG</a></li>
-                                        <li><a href="#"> Others Brand</a></li>
-                                    </ul>
-                                </div>
-                                <div class="category-dropdown-style category-common4 mb-40">
-                                    <h4 class="categories-subtitle">Others</h4>
-                                    <ul>
-                                        <li><a href="#">Monitor</a></li>
-                                        <li><a href="#">Mouse</a></li>
-                                        <li><a href="#">Keybord</a></li>
-                                        <li><a href="#">Speaker</a></li>
-                                        <li><a href="#">Joy Stick</a></li>
-                                        <li><a href="#">Wireless Speaker</a></li>
-                                        <li><a href="#">Software</a></li>
-                                    </ul>
-                                </div>
-                                <div class="category-dropdown-style category-common4 mb-40">
-                                    <h4 class="categories-subtitle">Accessories</h4>
-                                    <ul class="border-none">
-                                        <li><a href="#">Monitor</a></li>
-                                        <li><a href="#">Mouse</a></li>
-                                        <li><a href="#">Keybord</a></li>
-                                        <li><a href="#">Speaker</a></li>
-                                        <li><a href="#">Joy Stick</a></li>
-                                        <li><a href="#">Wireless Speaker</a></li>
-                                        <li><a href="#">Software</a></li>
-                                    </ul>
-                                </div>
+
                                 <div class="mega-banner-img">
                                     <a href="single-product.html">
                                         <img src="assets/img/banner/18.jpg" alt="">
                                     </a>
                                 </div>
                             </div>
-                        <li>
-                            <a href="#"><img alt="" src="assets/img/icon-img/13.png">Others Equipment</a>
-                        </li>
+                            @endif
+                        @endforeach
                     </ul>
                 </div>
             </div>
