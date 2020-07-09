@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PayPalController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,10 +23,10 @@ Route::redirect('/','/home');
 
 Auth::routes();
 
+//Home route
 Route::get('/', [HomeController::class,'index'])->name('home');
 
-//cart
-
+//cart routes
 // 'as' acts as cart.index,cart.add etc
 Route::group(['prefix'=>'cart','middleware'=>'auth','as'=>'cart.'], function(){
     Route::get('/', [CartController::class,'index'])->name('index');
@@ -35,10 +36,12 @@ Route::group(['prefix'=>'cart','middleware'=>'auth','as'=>'cart.'], function(){
     Route::get('/checkout/', [CartController::class,'checkout'])->name('checkout');
 });
 
+//order routes
 Route::group(['prefix'=>'orders','middleware'=>'auth','as'=>'orders.'], function(){
     Route::post('/store', [OrderController::class,'store'])->name('store');
 });
 
+//shop routes
 Route::group(['prefix'=>'shops','middleware'=>'auth','as'=>'shops.'], function(){
     Route::get('/', [ShopController::class,'index'])->name('index');
     Route::get('/store', [ShopController::class,'store'])->name('store');
@@ -47,6 +50,16 @@ Route::group(['prefix'=>'shops','middleware'=>'auth','as'=>'shops.'], function()
     Route::get('/update/{shops}', [ShopController::class,'update'])->name('update');
 });
 
+//product routes
+Route::group(['prefix'=>'products','middleware'=>'auth','as'=>'products.'], function(){
+    Route::get('/', [ProductController::class,'index'])->name('index');
+    Route::get('/store', [ProductController::class,'store'])->name('store');
+    Route::get('/show', [ProductController::class,'show'])->name('show');
+    Route::get('/destroy/{products}', [ProductController::class,'destroy'])->name('destroy');
+    Route::get('/update/{products}', [ProductController::class,'update'])->name('update');
+});
+
+//paypal routes
 Route::group(['prefix'=>'paypal','middleware'=>'auth','as'=>'paypal.'], function(){
     Route::get('/expressCheckout/{orderId}', [PayPalController::class,'expressCheckout'])->name('expressCheckout');
     Route::get('/expressCheckout/success/{orderId}', [PayPalController::class,'expressCheckoutSuccess'])->name('success');
@@ -56,6 +69,7 @@ Route::group(['prefix'=>'paypal','middleware'=>'auth','as'=>'paypal.'], function
 
 
 
+//voyage routes
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

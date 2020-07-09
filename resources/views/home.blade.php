@@ -5,35 +5,35 @@
         <div class="categori-menu-slider-wrapper clearfix">
             <div class="categories-menu">
                 <div class="category-heading">
-                    <h3> All Departments <i class="pe-7s-angle-down"></i></h3>
+                    <h3> All Categories <i class="pe-7s-angle-down"></i></h3>
                 </div>
                 <div class="category-menu-list">
                     <ul>
                         @foreach ($categories as $category)
-                        <li>
-                            <a href="#"><img alt="" src="assets/img/icon-img/5.png">{{$category->name}} <i
-                                    class="pe-7s-angle-right"></i></a>
-                            @if(categoryChild($category->id)->isNotEmpty())
-                            <div class="category-menu-dropdown">
-                                <div class="category-dropdown-style category-common4 mb-40">
-                                    <h4 class="categories-subtitle"> {{$category->name}}</h4>
-                                    <ul>
-                                        <li><a href="#"> Mother Board</a></li>
-                                        <li><a href="#"> Power Supply</a></li>
-                                        <li><a href="#"> RAM</a></li>
-                                        <li><a href="#"> Graphics Card</a></li>
-                                        <li><a href="#"> Hard Disk Drive</a></li>
-                                        <li><a href="#">Cooling Fan</a></li>
-                                        <li><a href="#">HD Cable</a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="mega-banner-img">
-                                    <a href="single-product.html">
-                                        <img src="assets/img/banner/18.jpg" alt="">
-                                    </a>
-                                </div>
-                            </div>
+                            <li>
+                                <a href="{{route('products.index', ['category_id'=> $category->id])}}"><img alt="" src="assets/img/icon-img/5.png">{{$category->name}} <i
+                                        class="pe-7s-angle-right"></i></a>
+                                @php
+                                    $children = categoryChild($category->id);
+                                @endphp
+                                @if($children->isNotEmpty())
+                                    <div class="category-menu-dropdown">
+                                        @foreach($children as $child)
+                                            <div class="category-dropdown-style category-common4 mb-40">
+                                                <h4 class="categories-subtitle"><a href="{{route('products.index', ['category_id'=> $child->id])}}">{{$child->name}}</a></h4>
+                                                @php
+                                                    $grandChild = categoryChild($child->id);
+                                                @endphp
+                                                @if($grandChild->isNotEmpty())
+                                                    <ul>
+                                                        @foreach($grandChild as $gc)
+                                                            <li><a href="{{route('products.index', ['category_id'=> $gc->id])}}"> {{$gc->name}}</a></li>
+                                                        @endforeach
+                                                    </ul>
+                                                @endif
+                                            </div>
+                                        @endforeach
+                                    </div>
                             @endif
                         @endforeach
                     </ul>
@@ -215,7 +215,8 @@
                                                    data-toggle="modal" title="Quick View">
                                                     <i class="pe-7s-look"></i>
                                                 </a>
-                                                `<a class="animate-top" title="Add To Cart" href="{{route('cart.add',$product->id)}}">
+                                                `<a class="animate-top" title="Add To Cart"
+                                                    href="{{route('cart.add',$product->id)}}">
                                                     <i class="pe-7s-cart"></i>
                                                 </a>
                                                 <a class="animate-left" title="Wishlist" href="#">
