@@ -93,9 +93,9 @@
                     </div>
                 </div>
                 <div class="categories-wrapper">
-                    <form action="#">
-                        <input placeholder="Enter Your key word" type="text">
-                        <button type="button"> Search</button>
+                    <form action="{{route('products.search')}}">
+                        <input placeholder="Enter Your key word" type="text" name="productName">
+                        <button type="submit"> Search</button>
                     </form>
                 </div>
             </div>

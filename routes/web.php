@@ -53,10 +53,7 @@ Route::group(['prefix'=>'shops','middleware'=>'auth','as'=>'shops.'], function()
 //product routes
 Route::group(['prefix'=>'products','middleware'=>'auth','as'=>'products.'], function(){
     Route::get('/', [ProductController::class,'index'])->name('index');
-    Route::get('/store', [ProductController::class,'store'])->name('store');
-    Route::get('/show', [ProductController::class,'show'])->name('show');
-    Route::get('/destroy/{products}', [ProductController::class,'destroy'])->name('destroy');
-    Route::get('/update/{products}', [ProductController::class,'update'])->name('update');
+    Route::get('/search', [ProductController::class,'search'])->name('search');
 });
 
 //paypal routes

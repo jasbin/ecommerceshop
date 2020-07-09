@@ -2,7 +2,7 @@
     <div class="product-wrapper product-border mb-24">
         <div class="product-img-3">
             <a href="product-details.html">
-                <img src="assets/img/product/electro/1.jpg" alt="">
+                <img src="{{asset("assets/img/product/electro/1.jpg")}}" alt="">
             </a>
             <div class="product-action-right">
                 <a class="animate-right" href="#" data-target="#exampleModal"
@@ -27,7 +27,9 @@
                 <i class="icofont icofont-star"></i>
             </div>
             <h4><a href="product-details.html">{{$product->name}}</a></h4>
-            <span>{{$product->category[0]->name}}</span>
+            @if(!empty($product->category[0]))
+                <span>{{$product->category[0]->name}}</span>
+            @endif
             <h5>{{$product->price}}</h5>
         </div>
     </div>
