@@ -34,6 +34,7 @@ Route::group(['prefix'=>'cart','middleware'=>'auth','as'=>'cart.'], function(){
     Route::get('/destroy/{product}', [CartController::class,'destroy'])->name('destroy');
     Route::get('/update/{product}', [CartController::class,'update'])->name('update');
     Route::get('/checkout/', [CartController::class,'checkout'])->name('checkout');
+    Route::get('/applyCoupon', [CartController::class,'applyCoupon'])->name('applyCoupon');
 });
 
 //order routes

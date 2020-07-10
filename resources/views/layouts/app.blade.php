@@ -188,6 +188,7 @@
     </div>
 </header>
 <!-- header end -->
+@include('includes.flash-message')
 @yield('content')
 <footer class="footer-area">
     <div class="footer-top-3 black-bg pt-75 pb-25">
